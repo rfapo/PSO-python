@@ -3,7 +3,7 @@ import random
 import time
 import math
 from itertools import cycle
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 from Particle import Particle
 from Problem import Problem
@@ -33,7 +33,7 @@ def search(iterations, population, low_bound, high_bound, max_vel, C1, C2, topol
 			particle.cost = problem.sphere(particle.position)
 			update_personal_best(particle)
 		gbest = update_global_best(pop, gbest)
-		print "Iteration: ", ite, "Fitness: ", gbest.cost
+		#print "Iteration: ", ite, "Fitness: ", gbest.cost
 		fitness.append(gbest.cost)
 	return gbest, fitness
 
@@ -155,24 +155,29 @@ if __name__ == "__main__":
 	## End Configurations ##
 	all_fitness = []
 	time_init = time.time()
-	for i in xrange(1):
+	for i in xrange(30):
 		best, fitness = search(iterations, population, low_bound, high_bound, max_v, C1, C2, topology, pso_type)
 		all_fitness.append(fitness)
-		
-	fitness_sum =sum(map(np.array, all_fitness))
-	fitness_mean = []
-	for i in xrange(len(fitness_sum)):
-		fitness_mean.append(fitness_sum[i]/1)
+		print best.cost
+	# Primeira parte da Analise 3
+	# fitness_sum =sum(map(np.array, all_fitness))
+	# fitness_mean = []
+	# for i in xrange(len(fitness_sum)):
+	# 	fitness_mean.append(fitness_sum[i]/30)
 
 	time_end = time.time()
-	print "Done!"
-	print "Total time elapsed: %.3f seconds." % (time_end - time_init)
-	print "Solution: "
-	print "low_bound: ", low_bound, " high_bound: ", high_bound
-	print "Best fitness: ", best.cost
-	print "Best positions: ", best.position
-	plt.plot(fitness)
+	# print "Done!"
+	# print "Total time elapsed: %.3f seconds." % (time_end - time_init)
+	# print "Solution: "
+	# print "low_bound: ", low_bound, " high_bound: ", high_bound
+	# print "Best fitness: ", best.cost
+	# print "Best positions: ", best.position
+	#print "Fitness mean: ", fitness_mean
+	# for item in fitness_mean:
+	# 	print item
+	#print fitness_mean
+	#plt.plot(fitness_mean)
 	#plt.boxplot(fitness)
-	plt.ylabel('Fitness')
-	plt.xlabel('Iterations')
-	plt.show()
+	#plt.ylabel('Fitness mean')
+	#plt.xlabel('Iterations')
+	#plt.show()

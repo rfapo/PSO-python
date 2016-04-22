@@ -2,7 +2,7 @@ class Parameters:
 	def __init__(self):
 		self.topology = "global"
 		'''Set problem: sphere, rotated rastrigin, rosenbrock'''
-		self.problem_type = "rastrigin"
+		self.problem_type = "rosenbrock"
 		# low_bound = -100.0
 		# high_bound = 100.0
 		self.low_bound = None
@@ -13,7 +13,7 @@ class Parameters:
 
 		## PSO parameters ##
 		# PSO Types: basic, basic_with_weight, inertia or constricted
-		self.pso_type = "inertia"
+		self.pso_type = "basic_with_weight"
 		#max_v = 0.054705633519
 		#max_v = 0.053141592653589793
 		self.max_v = 0.053141592653589793

@@ -27,7 +27,8 @@ class Problem:
 		A=10.
 		total = 0.0
 		for i in xrange(n):
-			total = A*n+np.sum(position[i]**2-A*cos(2*pi*position[i]))
+			parcela = position[i]**2-(A*cos(2*pi*position[i]))
+			total = A * n + parcela
 		return total
 	
 	def rosenbrock(self, position):
